@@ -10,23 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	intern
+NAME		=	convert
 
-HEADER		=	Bureaucrat.hpp \
-				Form.hpp \
-				ShrubberyCreationForm.hpp \
-				RobotomyRequestForm.hpp \
-				PresidentialPardonForm.hpp \
-				Intern.hpp \
+HEADER		=	Convert.hpp \
+				MyException.hpp \
 
 SRC 		= 	main.cpp \
-				Bureaucrat.cpp \
-				Form.cpp \
-				ShrubberyCreationForm.cpp \
-				ascii_tree.cpp \
-				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp \
-				Intern.cpp \
+				MyException.cpp \
+				Convert.cpp \
+				utils.cpp \
 
 OBJS		= ${SRC:.cpp=.o}
 
