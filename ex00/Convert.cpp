@@ -8,9 +8,9 @@ void	Convert::c2c( const std::string & val )
 	else if ( strIsNum( val ) == true && ( atoi( val.c_str() ) < 33 || atoi( val.c_str() ) == 127 ) )
 		std::cout << "char: Non displayable" << std::endl;
 	else if ( val.length() == 1 && strIsNum( val ) == false )
-		std::cout << "char: " << val.at(0) << std::endl;
+		std::cout << "char: " << "\'" << val.at(0) << "\'" << std::endl;
 	else
-		std::cout << "char: " << static_cast<char>( atoi( val.c_str() ) ) << std::endl;
+		std::cout << "char: " << "\'" << static_cast<char>( atoi( val.c_str() ) ) << "\'" << std::endl;
 }
 
 void	Convert::c2i( const std::string & val )
@@ -31,10 +31,10 @@ void	Convert::c2f( const std::string & val )
 	else if (i >= 0 && (i == 1 || i == 3 || i == 5 ))
 		std::cout << "float: " << m_arr[i] << std::endl;
 	else if (strIsNum(val) == false)
-		std::cout << "float: " << static_cast<float>(val.at(0)) << ".0f" << std::endl;
+		std::cout << "float1: " << static_cast<float>(val.at(0)) << ".0f" << std::endl;
 	else 
 	{
-		if (val.find('.') == std::string::npos || val.at(val.length() - 1) == 46)
+		if (atof(val.c_str()) - atoi(val.c_str()) == 0)
 			std::cout << "float: " << atof(val.c_str()) << ".0f" << std::endl;
 		else
 			std::cout << "float: " << atof(val.c_str()) << "f" << std::endl;
@@ -49,10 +49,10 @@ void	Convert::c2d( const std::string & val )
 	else if (i >= 0 && (i == 1 || i == 3 || i == 5 ))
 		std::cout << "double: " << m_arr[i - 1] << std::endl;
 	else if (strIsNum(val) == false)
-		std::cout << "double: " << static_cast<float>(val.at(0)) << ".0" << std::endl;
+		std::cout << "double1: " << static_cast<float>(val.at(0)) << ".0" << std::endl;
 	else 
 	{
-		if (val.find('.') == std::string::npos || val.at(val.length() - 1) == 46)
+		if (atof(val.c_str()) - atoi(val.c_str()) == 0)
 			std::cout << "double: " << atof(val.c_str()) << ".0" << std::endl;
 		else
 			std::cout << "double: " << atof(val.c_str()) << std::endl;
