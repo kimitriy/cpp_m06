@@ -10,23 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	intern
+NAME		=	identify
 
-HEADER		=	Bureaucrat.hpp \
-				Form.hpp \
-				ShrubberyCreationForm.hpp \
-				RobotomyRequestForm.hpp \
-				PresidentialPardonForm.hpp \
-				Intern.hpp \
+HEADER		=	Base.hpp \
+				A.hpp \
+				B.hpp \
+				C.hpp \
+				Utils.hpp \
 
 SRC 		= 	main.cpp \
-				Bureaucrat.cpp \
-				Form.cpp \
-				ShrubberyCreationForm.cpp \
-				ascii_tree.cpp \
-				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp \
-				Intern.cpp \
+				Base.cpp \
+				A.cpp \
+				B.cpp \
+				C.cpp \
+				Utils.cpp \
 
 OBJS		= ${SRC:.cpp=.o}
 
