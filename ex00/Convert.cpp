@@ -3,40 +3,40 @@
 //private
 void	Convert::c2c( const std::string & val )
 {
-	if ( strInArr( m_arr, val ) >= 0 || atoi( val.c_str() ) < 0 || atoi( val.c_str() ) > 127 )
+	if ( strInArr( m_arr, val ) >= 0 || atoi( val.c_str() ) < 0 || atoi( val.c_str() ) > 127 ) //is out of char range
 		std::cout << "char: impossible" << std::endl;
-	else if ( strIsNum( val ) == true && ( atoi( val.c_str() ) < 33 || atoi( val.c_str() ) == 127 ) )
+	else if ( strIsNum( val ) == true && ( atoi( val.c_str() ) < 33 || atoi( val.c_str() ) == 127 ) ) //is not displayable
 		std::cout << "char: Non displayable" << std::endl;
-	else if ( val.length() == 1 && strIsNum( val ) == false )
+	else if ( val.length() == 1 && strIsNum( val ) == false ) //is an only symbol i.e. char
 		std::cout << "char: " << "\'" << val.at(0) << "\'" << std::endl;
-	else
+	else //is an valid int
 		std::cout << "char: " << "\'" << static_cast<char>( atoi( val.c_str() ) ) << "\'" << std::endl;
 }
 
 void	Convert::c2i( const std::string & val )
 {
-	if (strInArr(m_arr, val) >= 0)
+	if (strInArr(m_arr, val) >= 0) //if str is in m_arr
 		std::cout << "int: impossible" << std::endl;
-	else if (strIsNum(val) == false)
+	else if (strIsNum(val) == false) //if str is not a number
 		std::cout << "int: " << static_cast<int>(val.at(0)) << std::endl;
-	else 
+	else //if str is a number
 		std::cout << "int: " << atoi(val.c_str()) << std::endl;
 }
 
 void	Convert::c2f( const std::string & val )
 {
 	int	i = strInArr(m_arr, val);
-	if (i >= 0 && (i == 0 || i == 2 || i == 4 ))
+	if (i >= 0 && (i == 0 || i == 2 || i == 4 )) //if str == +/-inf or nan
 		std::cout << "float: " << m_arr[i + 1] << std::endl;
-	else if (i >= 0 && (i == 1 || i == 3 || i == 5 ))
+	else if (i >= 0 && (i == 1 || i == 3 || i == 5 )) //if str == +/-inff or nanf
 		std::cout << "float: " << m_arr[i] << std::endl;
-	else if (strIsNum(val) == false)
-		std::cout << "float1: " << static_cast<float>(val.at(0)) << ".0f" << std::endl;
-	else 
+	else if (strIsNum(val) == false) //str is not a number (also it is one char only)
+		std::cout << "float: " << static_cast<float>(val.at(0)) << ".0f" << std::endl;
+	else //if str is a number
 	{
-		if (atof(val.c_str()) - atoi(val.c_str()) == 0)
+		if (atof(val.c_str()) - atoi(val.c_str()) == 0) //doesn't have a fraction part
 			std::cout << "float: " << atof(val.c_str()) << ".0f" << std::endl;
-		else
+		else //has a fraction part
 			std::cout << "float: " << atof(val.c_str()) << "f" << std::endl;
 	}
 }
@@ -44,17 +44,17 @@ void	Convert::c2f( const std::string & val )
 void	Convert::c2d( const std::string & val )
 {
 	int	i = strInArr(m_arr, val);
-	if (i >= 0 && (i == 0 || i == 2 || i == 4 ))
+	if (i >= 0 && (i == 0 || i == 2 || i == 4 )) //if str == +/-inf or nan
 		std::cout << "double: " << m_arr[i] << std::endl;
-	else if (i >= 0 && (i == 1 || i == 3 || i == 5 ))
+	else if (i >= 0 && (i == 1 || i == 3 || i == 5 )) //if str == +/-inff or nanf
 		std::cout << "double: " << m_arr[i - 1] << std::endl;
-	else if (strIsNum(val) == false)
+	else if (strIsNum(val) == false) //str is not a number (also it is one char only)
 		std::cout << "double1: " << static_cast<float>(val.at(0)) << ".0" << std::endl;
-	else 
+	else //if str is a number
 	{
-		if (atof(val.c_str()) - atoi(val.c_str()) == 0)
+		if (atof(val.c_str()) - atoi(val.c_str()) == 0) //doesn't have a fraction part
 			std::cout << "double: " << atof(val.c_str()) << ".0" << std::endl;
-		else
+		else //has a fraction part
 			std::cout << "double: " << atof(val.c_str()) << std::endl;
 	}
 }
@@ -93,7 +93,7 @@ Convert::Convert( const Convert& other ) //copy constr
 
 Convert::~Convert ( void ) //destr
 {
-	// delete[] m_arr;
+
 }
 
 Convert& Convert::operator= ( const Convert& other ) //[=] operator overload

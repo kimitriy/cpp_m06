@@ -8,15 +8,15 @@ bool	strIsNum( const std::string str )
 	size_t	i = 0;
 	while  (i < len )
 	{
-		if ( str[i] == 46 && flag_dot == false )
+		if ( str[i] == 46 && flag_dot == false ) //'.'
 			flag_dot = true;
 		else if ( str[i] == 46 && flag_dot == true )
 			return ( false );
-		if ( str[i] == 45 && flag_minus == false )
+		if ( str[i] == 45 && flag_minus == false ) //'-'
 			flag_minus = true;
 		else if ( str[i] == 45 && flag_minus == true )
 			return ( false );
-		if ( str[i] ==  102 && flag_dot != true )
+		if ( str[i] ==  102 && flag_dot != true ) //'f'
 			return ( false );
 		else if ( str[i] ==  102 && flag_dot == true && i != len - 1 )
 			return ( false );
