@@ -4,17 +4,18 @@ bool	strIsNum( const std::string str )
 {
 	bool	flag_dot = false;
 	bool	flag_minus = false;
+	bool	flag_first = false;
 	size_t len = str.length();
 	size_t	i = 0;
 	while  (i < len )
 	{
+		if ( str[i] == 45 && flag_minus == false && flag_first == false) //'-'
+			flag_minus = true;
+		else if ( str[i] == 45 && (flag_minus == true || flag_first == true))
+			return ( false );
 		if ( str[i] == 46 && flag_dot == false ) //'.'
 			flag_dot = true;
 		else if ( str[i] == 46 && flag_dot == true )
-			return ( false );
-		if ( str[i] == 45 && flag_minus == false ) //'-'
-			flag_minus = true;
-		else if ( str[i] == 45 && flag_minus == true )
 			return ( false );
 		if ( str[i] ==  102 && flag_dot != true ) //'f'
 			return ( false );
@@ -25,6 +26,7 @@ bool	strIsNum( const std::string str )
 		if ( isdigit( str[i] ) == 0 && str[i] != 46 && str[i] != 45 )
 			return ( false );
 		i++;
+		flag_first = true;
 	}
 	return ( true );
 }
